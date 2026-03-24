@@ -1,22 +1,22 @@
 import java.util.*;
 
 class RailwayReservation {
-    private static final int TOTAL_SEATS = 5;
+    private static final int TOTALSEATS = 5;
 
     Queue<String> reservedSeats = new LinkedList<>();
-    Queue<String> waitinglist = new LinkedList<>();
+    Queue<String> Waitinglist = new LinkedList<>();
 
-    private static final int WAITING_LIST = 3;
+    private static final int WaitingList = 3;
 
     // BOOK TICKET 
 
     public void bookTicket(String name) {
 
-        if(reservedSeats.size() < TOTAL_SEATS) {
+        if(reservedSeats.size() < TOTALSEATS) {
             reservedSeats.add(name);
             System.out.println(" Ticket confirmed for: " + name);
 
-        } else if(waitinglist.size() < WAITING_LIST) {
+        } else if(Waitinglist.size() < WaitingList) {
             waitinglist.add(name);
             System.out.println(" setas full added to waiting list: " + name);
 
@@ -34,13 +34,13 @@ public void cancelTicket(String name){
        System.out.println("Ticket Cancelled for:" + name);
 
 
-       if(!waitinglist.isEmpty()){
-        String next = waitinglist.remove();
+       if(!Waitinglist.isEmpty()){
+        String next = Waitinglist.remove();
         reservedSeats.add(next);
         System.out.println(" > " + next + " moved  from waiting  to confirmrd ");
        }
 
-    }else if(waitinglist.remove(name)){
+    }else if(Waitinglist.remove(name)){
         System.out.println("removed from waititng list:"+ name);
 
     }else {
@@ -57,7 +57,7 @@ public void showStatus() {
 
 
     System.out.println("\n======waitinglist ========= ");
-    System.out.println(waitinglist);
+    System.out.println(Waitinglist);
     }
 }
 
